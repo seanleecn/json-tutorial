@@ -34,6 +34,25 @@ static void test_parse_null() {
     EXPECT_EQ_INT(LEPT_NULL, lept_get_type(&v));
 }
 
+/* 作业2: 添加 true/false 测试单元 */
+#ifdef SOLUTION
+
+static void test_parse_true() {
+    lept_value v;
+    v.type = LEPT_FALSE;
+    EXPECT_EQ_INT(LEPT_PARSE_OK, lept_parse(&v, "true"));
+    EXPECT_EQ_INT(LEPT_TRUE, lept_get_type(&v));
+}
+
+static void test_parse_false() {
+    lept_value v;
+    v.type = LEPT_TRUE;
+    EXPECT_EQ_INT(LEPT_PARSE_OK, lept_parse(&v, "false"));
+    EXPECT_EQ_INT(LEPT_FALSE, lept_get_type(&v));
+}
+
+#endif
+
 static void test_parse_expect_value() {
     lept_value v;
 
@@ -60,8 +79,7 @@ static void test_parse_invalid_value() {
 static void test_parse_root_not_singular() {
     lept_value v;
     v.type = LEPT_FALSE;
-    /* 作业1: 修正 LEPT_PARSE_ROOT_NOT_SINGULAR */
-    // 从报错信息可以找到报错的行数是下面这一行,即输入"null x"的时候会
+    /********作业1: 修正 LEPT_PARSE_ROOT_NOT_SINGULAR ********/
     EXPECT_EQ_INT(LEPT_PARSE_ROOT_NOT_SINGULAR, lept_parse(&v, "null x"));
     EXPECT_EQ_INT(LEPT_NULL, lept_get_type(&v));
 }
@@ -69,6 +87,10 @@ static void test_parse_root_not_singular() {
 static void test_parse() {
     // 在下面四个函数中,一共调用了12次EXPECT_EQ_INT,也就是说进行了12次测试
     test_parse_null();
+#ifdef SOLUTION
+    test_parse_true();
+    test_parse_false();
+#endif
     test_parse_expect_value();
     test_parse_invalid_value();
     test_parse_root_not_singular();

@@ -8,5 +8,6 @@ if (CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
 endif()
 
 add_library(leptjson leptjson.c) # 在不指定STATIC还是SHARED的情况下,默认生成静态库.a文件
+add_definitions(-DSOLUTION) # 是否要以SOLUTION模式编译
 add_executable(leptjson_test test.c)
 target_link_libraries(leptjson_test leptjson)

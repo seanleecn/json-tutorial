@@ -3,13 +3,14 @@
 * [json-tutorial](https://github.com/miloyip/json-tutorial)的学习记录
 * 原作者: [Milo Yip](https://github.com/miloyip)
 
+
 ## 项目说明
 
-学习代码在`sean-dev`分支
+1. 将原项目中每一讲的`tutorial0x`和`tutorial0x_answer`合并为`leptjson0x`, 即每一讲的 *课程代码* 和 *作业代码* 写在一起
 
-将原项目中每一讲的`tutorial0x`和`tutorial0x_answer`合并为`leptjson0x`, 即每一讲的课程代码和作业代码共用一套代码
+2. 为了便于查看作业代码的修改, 使用条件编译`#define SOLUTION`区分, 每次编译之前检查一下CMakeLists中的编译宏
 
-目前学习内容以注释的形式记录在代码中,  后续考虑增加学习笔记
+3. 目前学习内容以注释的形式记录在代码中,  后续考虑增加学习笔记
 
 ## 学习进度
 
